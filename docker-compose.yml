@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+    db:
+        environment:
+            POSTGRES_PASSWORD: ${PGPASSWORD}
+            POSTGRES_USER: ${PGUSER}
+        image: postgres:10
+        ports:
+            - 5432:5432
+        restart: always
+        volumes:
+            - ./dvdrental/:/docker-entrypoint-initdb.d/
